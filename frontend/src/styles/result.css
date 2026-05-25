@@ -1,0 +1,30 @@
+.result-page { display: flex; justify-content: center; align-items: center; min-height: 70vh; }
+.result-card { background: var(--white); border-radius: 16px; padding: 3rem 2rem; box-shadow: var(--shadow); max-width: 500px; width: 100%; text-align: center; border-top: 6px solid #e2e8f0; }
+
+.result-card.approved { border-top-color: var(--success); }
+.result-card.rejected { border-top-color: var(--danger); }
+
+.icon-wrapper { margin-bottom: 1.5rem; }
+.status-icon { font-size: 5rem; }
+.status-icon.success { color: var(--success); }
+.status-icon.error { color: var(--danger); }
+
+.result-card h1 { font-size: 2rem; margin-bottom: 2rem; }
+.text-success { color: #065f46; }
+.text-error { color: #991b1b; }
+
+.details-grid {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+.detail-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid #e2e8f0; }
+.detail-item:last-child { border-bottom: none; padding-bottom: 0; }
+.detail-item span { color: var(--text-light); font-size: 0.95rem; }
+.detail-item strong { color: var(--text-dark); font-size: 1rem; }
+
+.result-actions { display: flex; gap: 1rem; justify-content: center; }
