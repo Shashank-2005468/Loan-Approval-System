@@ -145,35 +145,8 @@ http://localhost:5173
 
 ---
 
-## API Endpoints
 
-### Authentication
 
-```http
-POST /register
-POST /login
-POST /forgot-password
-```
-
-### Prediction
-
-```http
-POST /predict
-```
-
-### Profile
-
-```http
-PUT /update-profile
-```
-
-### History
-
-```http
-GET /history/<user_id>
-```
-
----
 
 
 
