@@ -7,7 +7,9 @@ from routes.auth_route import auth_bp
 
 app = Flask(__name__)
 
-CORS(app)
+CORS( app,
+    resources={r"/*": {"origins": "*"}},
+    supports_credentials=True)
 
 app.register_blueprint(prediction_bp)
 app.register_blueprint(history_bp)
