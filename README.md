@@ -145,11 +145,6 @@ http://localhost:5173
 
 ---
 
-
-
-
-
-
 ## Future Improvements
 
 - Password Reset via Email OTP
