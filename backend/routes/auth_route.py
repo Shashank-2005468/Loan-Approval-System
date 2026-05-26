@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from database.collections import users_collection
 from bson.objectid import ObjectId
+import bcrypt
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -32,11 +33,16 @@ def register():
 
     data = request.json
 
+    hashed_password = bcrypt.hashpw(
+        data["password"].encode("utf-8"),
+        bcrypt.gensalt()
+    ).decode("utf-8")
+
     users_collection.insert_one({
         "username": data["username"],
         "email": data["email"],
         "phone": data["phone"],
-        "password": data["password"]
+        "password": hashed_password
     })
 
     return jsonify({
@@ -51,24 +57,26 @@ def login():
     data = request.json
 
     user = users_collection.find_one({
-        "email": data["email"],
-        "password": data["password"]
+        "email": data["email"]
     })
 
-    if user:
+    if user and bcrypt.checkpw(
+        data["password"].encode("utf-8"),
+        user["password"].encode("utf-8")
+    ):
 
         return jsonify({
             "message": "Login Successful",
             "user_id": str(user["_id"]),
             "username": user["username"],
-            "phone":user["phone"],
-            "email":user["email"]
-            
+            "phone": user["phone"],
+            "email": user["email"]
         })
 
     return jsonify({
         "message": "Invalid Credentials"
     }), 401
+
 
 # Update Profile API
 @auth_bp.route("/update-profile/<user_id>", methods=["PUT"])
@@ -102,9 +110,14 @@ def forgot_password():
             "message": "User with this email not found"
         }), 404
 
+    hashed_password = bcrypt.hashpw(
+        data["password"].encode("utf-8"),
+        bcrypt.gensalt()
+    ).decode("utf-8")
+
     users_collection.update_one(
         {"email": data["email"]},
-        {"$set": {"password": data["password"]}}
+        {"$set": {"password": hashed_password}}
     )
 
     return jsonify({
