@@ -30,7 +30,7 @@ const Result = () => {
         
         <div className="details-grid">
           <div className="detail-item"><span>Date:</span> <strong>{currentDate}</strong></div>
-          <div className="detail-item"><span>Loan Amount:</span> <strong>₹{new Intl.NumberFormat("en-IN").format(details.LoanAmount)}</strong></div>
+          <div className="detail-item"><span>Loan Amount:</span> <strong>₹{new Intl.NumberFormat("en-IN").format(details.LoanAmount*1000)}</strong></div>
           <div className="detail-item"><span>Total Income:</span> <strong>₹{new Intl.NumberFormat("en-IN").format(totalIncome)}</strong></div>
           <div className="detail-item"><span>Credit History:</span> <strong>{details.Credit_History === 1 ? 'Good' : 'Bad'}</strong></div>
         </div>
