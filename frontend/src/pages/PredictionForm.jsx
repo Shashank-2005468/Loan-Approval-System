@@ -75,17 +75,17 @@ const PredictionForm = () => {
             
             <div className="input-group">
               <label>Applicant Monthly Income (₹)</label>
-              <input type="number" name="ApplicantIncome" value={formData.ApplicantIncome} onChange={handleChange} required min="0" placeholder="Enter applicant income in ₹" />
+              <input type="number" name="ApplicantIncome" value={formData.ApplicantIncome} onChange={handleChange} required min="0" placeholder="e.g. 5000" />
             </div>
 
             <div className="input-group">
               <label>Co-Applicant Monthly Income (₹)</label>
-              <input type="number" name="CoapplicantIncome" value={formData.CoapplicantIncome} onChange={handleChange} required min="0" placeholder="Enter coapplicant income in ₹" />
+              <input type="number" name="CoapplicantIncome" value={formData.CoapplicantIncome} onChange={handleChange} required min="0" placeholder="e.g. 2000" />
             </div>
 
             <div className="input-group">
               <label>Loan Amount (in Thousands ₹)</label>
-              <input type="number" name="LoanAmount" value={formData.LoanAmount} onChange={handleChange} required min="1" placeholder="Enter loan amount in ₹" />
+              <input type="number" name="LoanAmount" value={formData.LoanAmount} onChange={handleChange} required min="1" placeholder="e.g. 230" />
             </div>
 
             <div className="input-group">
