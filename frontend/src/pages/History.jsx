@@ -45,7 +45,7 @@ const History = () => {
                 </span>
               </div>
               <div className="history-body">
-                <p><FaRupeeSign /> <strong>Loan Amount:</strong> ₹{new Intl.NumberFormat("en-IN").format(item.LoanAmount || 0)}</p>
+                <p><FaRupeeSign /> <strong>Loan Amount:</strong> ₹{new Intl.NumberFormat("en-IN").format((item.LoanAmount || 0)*1000)}</p>
                 <p><FaRupeeSign /> <strong>Total Income:</strong> ₹{new Intl.NumberFormat("en-IN").format(item.Total_Income || 0)}</p>
                 <p><strong>Credit History:</strong> {item.Credit_History === 1 ? 'Good' : 'Bad'}</p>
               </div>
